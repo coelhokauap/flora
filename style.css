@@ -1,21 +1,40 @@
-@import url("../../main.css");
+* {
+  box-sizing: border-box;
+}
 
 :root {
+  --color-surface: #ffffff;
+  --color-surface-soft: #f5f1e8;
   --color-page-start: #eef7ea;
   --color-page-middle: #f8f8fb;
   --color-page-end: #f3ead7;
+  --color-text: #1d1d1f;
+  --color-muted: #424245;
+  --color-subtle: #6e6e73;
   --color-accent: #2f7d4f;
   --color-accent-rgb: 47, 125, 79;
   --color-shadow-rgb: 31, 56, 40;
-  --glass-border: rgba(255, 255, 255, 0.76);
+  --content-width: 760px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
   --glass-surface: rgba(255, 255, 255, 0.56);
   --glass-surface-hover: rgba(255, 255, 255, 0.74);
+  --glass-field: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.76);
+  --glass-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.75),
+    0 14px 30px rgba(var(--color-shadow-rgb), 0.08);
+  --font-main: "SF Pro Text", "SF Pro Display", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
   max-width: 420px;
+  min-height: 100vh;
+  margin: 0;
   margin-left: clamp(24px, 8vw, 120px);
   margin-right: auto;
+  padding: 72px 24px;
   background:
     radial-gradient(circle at 18% 18%, #ffffff 0, transparent 28%),
     radial-gradient(circle at 82% 12%, #dff2d7 0, transparent 30%),
@@ -26,6 +45,52 @@ body {
       var(--color-page-middle) 48%,
       var(--color-page-end)
     );
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+.container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.glass {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-surface);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.button {
+  display: block;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 22px auto 0;
+  padding: 14px 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: var(--glass-field);
+  color: var(--color-accent);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--glass-surface-hover);
+}
+
+.button-primary {
+  background: rgba(var(--color-accent-rgb), 0.82);
+  color: var(--color-surface);
+}
+
+.button-primary:hover {
+  background: rgba(var(--color-accent-rgb), 0.92);
 }
 
 h1:first-of-type {
@@ -103,28 +168,6 @@ article h3 {
   margin: 0 0 8px;
   color: var(--color-muted);
   font-size: 24px;
-}
-
-.button {
-  width: 100%;
-  margin-top: 22px;
-  padding: 14px 16px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  background: var(--glass-field);
-  box-shadow: var(--glass-shadow);
-  backdrop-filter: blur(18px);
-  font: inherit;
-}
-
-.button-primary {
-  background: rgba(var(--color-accent-rgb), 0.82);
-  color: var(--color-surface);
-  cursor: pointer;
-}
-
-.button-primary:hover {
-  background: rgba(var(--color-accent-rgb), 0.92);
 }
 
 #total_carrinho,
