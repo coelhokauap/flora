@@ -6,6 +6,7 @@ const produtos = [
     cor: "vermelha",
     preco: 20.0,
     categoria: "flores",
+    imagem: "https://loremflickr.com/500/380/red-rose,flower?lock=101",
   },
   {
     id: 2,
@@ -13,6 +14,7 @@ const produtos = [
     cor: "branca",
     preco: 22.0,
     categoria: "flores",
+    imagem: "https://loremflickr.com/500/380/white-lily,flower?lock=102",
   },
   {
     id: 3,
@@ -20,6 +22,7 @@ const produtos = [
     cor: "rosa",
     preco: 18.5,
     categoria: "flores",
+    imagem: "https://loremflickr.com/500/380/camellia,flower?lock=103",
   },
   {
     id: 4,
@@ -27,6 +30,7 @@ const produtos = [
     cor: "branca",
     preco: 25.0,
     categoria: "flores",
+    imagem: "https://loremflickr.com/500/380/calla-lily,flower?lock=104",
   },
   {
     id: 5,
@@ -34,6 +38,7 @@ const produtos = [
     cor: "variada",
     preco: 15.0,
     categoria: "flores",
+    imagem: "https://loremflickr.com/500/380/portulaca,flower?lock=105",
   },
 
   // ---- Árvores com flores ----
@@ -43,6 +48,7 @@ const produtos = [
     cor: "amarela",
     preco: 120.0,
     categoria: "arvores com flores",
+    imagem: "https://loremflickr.com/500/380/ipe-tree,yellow-flowers?lock=106",
   },
   {
     id: 7,
@@ -50,6 +56,8 @@ const produtos = [
     cor: "branca",
     preco: 95.0,
     categoria: "arvores com flores",
+    imagem:
+      "https://loremflickr.com/500/380/night-blooming-jasmine,flower?lock=107",
   },
   {
     id: 8,
@@ -57,6 +65,7 @@ const produtos = [
     cor: "magenta",
     preco: 80.0,
     categoria: "arvores com flores",
+    imagem: "https://loremflickr.com/500/380/bougainvillea,flower?lock=108",
   },
   {
     id: 9,
@@ -64,6 +73,7 @@ const produtos = [
     cor: "vermelha",
     preco: 60.0,
     categoria: "arvores com flores",
+    imagem: "https://loremflickr.com/500/380/red-hibiscus,flower?lock=109",
   },
   {
     id: 10,
@@ -71,6 +81,8 @@ const produtos = [
     cor: "laranja",
     preco: 150.0,
     categoria: "arvores com flores",
+    imagem:
+      "https://loremflickr.com/500/380/flamboyant-tree,orange-flowers?lock=110",
   },
 
   // ---- Árvores sem flores ----
@@ -80,6 +92,7 @@ const produtos = [
     cor: "verde",
     preco: 200.0,
     categoria: "arvores sem flores",
+    imagem: "https://loremflickr.com/500/380/araucaria,tree?lock=111",
   },
   {
     id: 12,
@@ -87,6 +100,7 @@ const produtos = [
     cor: "verde",
     preco: 180.0,
     categoria: "arvores sem flores",
+    imagem: "https://loremflickr.com/500/380/pine-tree?lock=112",
   },
   {
     id: 13,
@@ -94,6 +108,7 @@ const produtos = [
     cor: "verde",
     preco: 220.0,
     categoria: "arvores sem flores",
+    imagem: "https://loremflickr.com/500/380/cedar-tree?lock=113",
   },
   {
     id: 14,
@@ -101,6 +116,7 @@ const produtos = [
     cor: "verde",
     preco: 250.0,
     categoria: "arvores sem flores",
+    imagem: "https://loremflickr.com/500/380/brazilian-tree,forest?lock=114",
   },
   {
     id: 15,
@@ -108,44 +124,46 @@ const produtos = [
     cor: "verde",
     preco: 90.0,
     categoria: "arvores sem flores",
+    imagem: "https://loremflickr.com/500/380/ficus,plant?lock=115",
   },
 ];
 
-const listaProdutos = document.querySelector("#lista-produtos");
-const carrinhoAba = document.querySelector("#carrinho-aba");
-const listaCarrinho = document.querySelector("#lista-carrinho");
-const totalCarrinho = document.querySelector("#total-carrinho");
+const lista_produtos = document.querySelector("#lista-produtos");
+const carrinho_aba = document.querySelector("#carrinho-aba");
+const lista_carrinho = document.querySelector("#lista-carrinho");
+const total_carrinho = document.querySelector("#total-carrinho");
 const carrinho = [];
 
-function formatarPreco(valor) {
+function formatar_preco(valor) {
   return valor.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
 }
 
-function atualizarCarrinho() {
-  listaCarrinho.innerHTML = "";
+function atualizar_carrinho() {
+  lista_carrinho.innerHTML = "";
 
   carrinho.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = `${item.nome} x ${item.quantidade}`;
-    listaCarrinho.appendChild(li);
+    lista_carrinho.appendChild(li);
   });
 
-  const total = carrinho.reduce((soma, item) => {
-    return soma + item.preco * item.quantidade;
-  }, 0);
+  const total = carrinho.reduce(
+    (soma, item) => soma + item.preco * item.quantidade,
+    0,
+  );
 
-  totalCarrinho.textContent = formatarPreco(total);
-  carrinhoAba.classList.toggle("aberto", carrinho.length > 0);
+  total_carrinho.textContent = formatar_preco(total);
+  carrinho_aba.classList.toggle("aberto", carrinho.length > 0);
 }
 
-function adicionarAoCarrinho(produto) {
-  const itemExistente = carrinho.find((item) => item.id === produto.id);
+function adicionar_ao_carrinho(produto) {
+  const item_existente = carrinho.find((item) => item.id === produto.id);
 
-  if (itemExistente) {
-    itemExistente.quantidade += 1;
+  if (item_existente) {
+    item_existente.quantidade += 1;
   } else {
     carrinho.push({
       ...produto,
@@ -153,15 +171,20 @@ function adicionarAoCarrinho(produto) {
     });
   }
 
-  atualizarCarrinho();
+  atualizar_carrinho();
 }
 
-function renderizarProdutos() {
-  listaProdutos.innerHTML = "";
+function renderizar_produtos() {
+  lista_produtos.innerHTML = "";
 
   produtos.forEach((produto) => {
-    const itemProduto = document.createElement("li");
-    itemProduto.className = "produto";
+    const item_produto = document.createElement("li");
+    item_produto.className = "produto";
+
+    const imagem = document.createElement("img");
+    imagem.src = produto.imagem;
+    imagem.alt = produto.nome;
+    imagem.loading = "lazy";
 
     const nome = document.createElement("h3");
     nome.textContent = produto.nome;
@@ -170,17 +193,17 @@ function renderizarProdutos() {
     detalhes.textContent = `${produto.categoria} - ${produto.cor}`;
 
     const preco = document.createElement("p");
-    preco.innerHTML = `<strong>${formatarPreco(produto.preco)}</strong>`;
+    preco.innerHTML = `<strong>${formatar_preco(produto.preco)}</strong>`;
 
     const botao = document.createElement("button");
     botao.className = "button button-primary";
     botao.type = "button";
     botao.textContent = "Adicionar";
-    botao.addEventListener("click", () => adicionarAoCarrinho(produto));
+    botao.addEventListener("click", () => adicionar_ao_carrinho(produto));
 
-    itemProduto.append(nome, detalhes, preco, botao);
-    listaProdutos.appendChild(itemProduto);
+    item_produto.append(imagem, nome, detalhes, preco, botao);
+    lista_produtos.appendChild(item_produto);
   });
 }
 
-renderizarProdutos();
+renderizar_produtos();
