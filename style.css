@@ -1,90 +1,138 @@
+@import url("../../main.css");
+
 :root {
-  --color-surface: #ffffff;
-  --color-surface-soft: #f5f1e8;
-  --color-page-start: #fff1f1;
+  --color-page-start: #eef7ea;
   --color-page-middle: #f8f8fb;
-  --color-page-end: #ffe9e9;
-  --color-text: #1d1d1f;
-  --color-muted: #424245;
-  --color-subtle: #6e6e73;
-  --color-accent: #f08080;
-  --color-accent-rgb: 240, 128, 128;
-  --color-shadow-rgb: 29, 29, 31;
-  --content-width: 760px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --glass-surface: rgba(255, 255, 255, 0.48);
-  --glass-surface-hover: rgba(255, 255, 255, 0.68);
-  --glass-field: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.7);
-  --glass-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.75),
-    0 14px 30px rgba(var(--color-shadow-rgb), 0.08);
-  --font-main:
-    "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  --color-page-end: #f3ead7;
+  --color-accent: #2f7d4f;
+  --color-accent-rgb: 47, 125, 79;
+  --color-shadow-rgb: 31, 56, 40;
+  --glass-border: rgba(255, 255, 255, 0.76);
+  --glass-surface: rgba(255, 255, 255, 0.56);
+  --glass-surface-hover: rgba(255, 255, 255, 0.74);
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 72px 24px;
+  max-width: 420px;
+  margin-left: clamp(24px, 8vw, 120px);
+  margin-right: auto;
   background:
-    radial-gradient(circle at 20% 20%, var(--color-surface) 0, transparent 28%),
-    radial-gradient(circle at 80% 10%, hsl(120 100% 94%) 0, transparent 30%),
+    radial-gradient(circle at 18% 18%, #ffffff 0, transparent 28%),
+    radial-gradient(circle at 82% 12%, #dff2d7 0, transparent 30%),
+    radial-gradient(circle at 78% 88%, #f0dfbd 0, transparent 28%),
     linear-gradient(
       135deg,
-      hsl(120 100% 97%),
-      hsl(120 27% 98%) 48%,
-      hsl(120 100% 96%)
+      var(--color-page-start),
+      var(--color-page-middle) 48%,
+      var(--color-page-end)
     );
-  color: var(--color-text);
-  font-family: var(--font-main);
-}
-* {
-  box-sizing: border-box;
 }
 
-.container {
-  max-width: var(--content-width);
-  margin-inline: auto;
+h1:first-of-type {
+  margin: 0 0 28px;
+  font-size: 40px;
+  line-height: 1.08;
 }
 
-.glass {
+span,
+strong {
+  color: var(--color-accent);
+}
+
+h2 {
+  margin: 32px 0 10px;
+  color: var(--color-muted);
+  font-size: 24px;
+}
+
+p {
+  color: var(--color-muted);
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+form {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  background: var(--glass-surface);
+  border-radius: var(--radius-md);
+  background: var(--glass-field);
   box-shadow: var(--glass-shadow);
   backdrop-filter: blur(18px);
+  font: inherit;
+}
+
+#lista_produtos,
+#lista-produtos,
+#lista_carrinho,
+#lista-carrinho {
+  padding: 0;
+  list-style: none;
+}
+
+#lista_produtos,
+#lista-produtos {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px);
+}
+
+article img {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: var(--radius-md);
+}
+
+article h3 {
+  margin: 0 0 8px;
+  color: var(--color-muted);
+  font-size: 24px;
 }
 
 .button {
-  display: block;
   width: 100%;
-  max-width: var(--content-width);
-  margin: 12px auto;
-  padding: 16px 20px;
+  margin-top: 22px;
+  padding: 14px 16px;
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  background: var(--glass-surface);
-  color: var(--color-accent);
-  font: inherit;
-  text-align: left;
-  text-decoration: none;
+  border-radius: var(--radius-md);
+  background: var(--glass-field);
   box-shadow: var(--glass-shadow);
   backdrop-filter: blur(18px);
-  cursor: pointer;
-}
-
-.button:hover {
-  background: var(--glass-surface-hover);
+  font: inherit;
 }
 
 .button-primary {
   background: rgba(var(--color-accent-rgb), 0.82);
   color: var(--color-surface);
+  cursor: pointer;
 }
 
 .button-primary:hover {
   background: rgba(var(--color-accent-rgb), 0.92);
+}
+
+#total_carrinho,
+#total-carrinho {
+  margin-left: 8px;
+}
+
+footer p {
+  margin: 32px 0 0;
+  color: var(--color-muted);
 }
