@@ -4,17 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Plantas</title>
+    <title>Florá</title>
   </head>
   <body>
-    <header>
-      <h1>Plantas</h1>
+    <header class="container">
+      <h1>Flor<strong>á</strong></h1>
+      <p>Loja online de <strong>plantas</strong> para casa e jardim.</p>
     </header>
-    <body>
-      <p>Bem-vindo ao nosso site de plantas!</p>
-    </body>
-    <footer></footer>
 
+    <main class="container">
+      <section>
+        <h2>Buscar plantas</h2>
+
+        <form>
+          <label for="busca">Produto</label>
+          <input
+            id="busca"
+            name="busca"
+            type="search"
+            placeholder="Buscar por nome da planta"
+          />
+
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria">
+            <option value="">Todas as categorias</option>
+            <option value="interior">Plantas de interior</option>
+            <option value="jardim">Plantas de jardim</option>
+            <option value="vasos">Vasos e suportes</option>
+            <option value="cuidados">Cuidados e adubos</option>
+          </select>
+
+          <label for="ordenacao">Ordenar por</label>
+          <select id="ordenacao" name="ordenacao">
+            <option value="relevancia">Mais relevantes</option>
+            <option value="menor-preco">Menor preço</option>
+            <option value="maior-preco">Maior preço</option>
+            <option value="mais-vendidos">Mais vendidos</option>
+          </select>
+
+          <button class="button button-primary" type="button">Filtrar</button>
+          <button class="button" type="reset">Limpar filtros</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Filtros rápidos</h2>
+        <button class="button" type="button">Pet friendly</button>
+        <button class="button" type="button">Pouca luz</button>
+        <button class="button" type="button">Fácil cuidado</button>
+        <button class="button" type="button">Entrega hoje</button>
+      </section>
+
+      <section>
+        <h2>Produtos</h2>
+        <div id="lista-produtos"></div>
+      </section>
+
+      <section>
+        <h2>Carrinho</h2>
+        <ul id="lista-carrinho"></ul>
+        <p>Total:<strong id="total-carrinho">R$ 0,00</strong></p>
+
+        <button class="button button-primary" type="button">
+          Finalizar compra
+        </button>
+      </section>
+    </main>
+
+    <footer class="container">
+      <button class="button" type="button">Atendimento</button>
+      <button class="button" type="button">Trocas e devoluções</button>
+      <button class="button" type="button">Política de entrega</button>
+      <p>&copy; 2026 Florá</p>
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>
