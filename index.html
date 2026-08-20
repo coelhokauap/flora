@@ -4,17 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Plantas</title>
+    <title>Florá</title>
   </head>
   <body>
-    <header>
-      <h1>Plantas</h1>
+    <header class="container">
+      <h1>Florá</h1>
+      <p>Loja online de plantas para casa e jardim.</p>
     </header>
-    <body>
-      <p>Bem-vindo ao nosso site de plantas!</p>
-    </body>
-    <footer></footer>
 
+    <main class="container">
+      <section>
+        <h2>Produtos</h2>
+        <div id="lista_produtos"></div>
+      </section>
+
+      <section>
+        <h2>Carrinho</h2>
+        <ul id="lista_carrinho"></ul>
+        <p>Total:<strong id="total_carrinho">R$ 0,00</strong></p>
+      </section>
+    </main>
+
+    <footer class="container">
+      <p>&copy; 2026 Florá</p>
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>
