@@ -1,65 +1,113 @@
-const carrinho = [];
+const produtos = [
+    // ---- Flores ----
+    {
+        id: 1,
+        nome: 'Rosa',
+        cor: 'vermelha',
+        preco: 20.00,
+        categoria: 'flores'
+    },
+    {
+        id: 2,
+        nome: 'Lírio',
+        cor: 'branca',
+        preco: 22.00,
+        categoria: 'flores'
+    },
+    {
+        id: 3,
+        nome: 'Camélia',
+        cor: 'rosa',
+        preco: 18.50,
+        categoria: 'flores'
+    },
+    {
+        id: 4,
+        nome: 'Copo de leite',
+        cor: 'branca',
+        preco: 25.00,
+        categoria: 'flores'
+    },
+    {
+        id: 5,
+        nome: 'Onze-horas',
+        cor: 'variada',
+        preco: 15.00,
+        categoria: 'flores'
+    },
 
-const listaProdutos = document.querySelector("#lista-produtos");
-const listaCarrinho = document.querySelector("#lista-carrinho");
-const totalCarrinho = document.querySelector("#total-carrinho");
+    // ---- Árvores com flores ----
+    {
+        id: 6,
+        nome: 'Ipê',
+        cor: 'amarela',
+        preco: 120.00,
+        categoria: 'arvores com flores'
+    },
+    {
+        id: 7,
+        nome: 'Dama da noite',
+        cor: 'branca',
+        preco: 95.00,
+        categoria: 'arvores com flores'
+    },
+    {
+        id: 8,
+        nome: 'Buganvília',
+        cor: 'magenta',
+        preco: 80.00,
+        categoria: 'arvores com flores'
+    },
+    {
+        id: 9,
+        nome: 'Hibisco',
+        cor: 'vermelha',
+        preco: 60.00,
+        categoria: 'arvores com flores'
+    },
+    {
+        id: 10,
+        nome: 'Flamboyant',
+        cor: 'laranja',
+        preco: 150.00,
+        categoria: 'arvores com flores'
+    },
 
-function formatarPreco(valor) {
-  return valor.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-}
+    // ---- Árvores sem flores ----
+    {
+        id: 11,
+        nome: 'Araucária',
+        cor: 'verde',
+        preco: 200.00,
+        categoria: 'arvores sem flores'
+    },
+    {
+        id: 12,
+        nome: 'Pinheiro',
+        cor: 'verde',
+        preco: 180.00,
+        categoria: 'arvores sem flores'
+    },
+    {
+        id: 13,
+        nome: 'Cedro',
+        cor: 'verde',
+        preco: 220.00,
+        categoria: 'arvores sem flores'
+    },
+    {
+        id: 14,
+        nome: 'Jequitibá',
+        cor: 'verde',
+        preco: 250.00,
+        categoria: 'arvores sem flores'
+    },
+    {
+        id: 15,
+        nome: 'Ficus',
+        cor: 'verde',
+        preco: 90.00,
+        categoria: 'arvores sem flores'
+    }
+];
 
-function renderizarProdutos() {
-  listaProdutos.innerHTML = "";
-
-  produtos.forEach((produto) => {
-    const artigo = document.createElement("article");
-    artigo.classList.add("glass");
-
-    artigo.innerHTML = `
-            <img src="${produto.imagem}" alt="${produto.nome}" width="220" />
-            <h3>${produto.nome}</h3>
-            <p>${formatarPreco(produto.preco)}</p>
-            <button class="button button-primary" type="button" data-id="${produto.id}">
-              Adicionar ao carrinho
-            </button>
-          `;
-
-    listaProdutos.appendChild(artigo);
-  });
-}
-
-function renderizarCarrinho() {
-  listaCarrinho.innerHTML = "";
-
-  carrinho.forEach((produto) => {
-    const item = document.createElement("li");
-    item.textContent = `${produto.nome} - ${formatarPreco(produto.preco)}`;
-    listaCarrinho.appendChild(item);
-  });
-
-  const total = carrinho.reduce((soma, produto) => soma + produto.preco, 0);
-  totalCarrinho.textContent = formatarPreco(total);
-}
-
-function adicionarAoCarrinho(idProduto) {
-  const produtoEncontrado = produtos.find(
-    (produto) => produto.id === idProduto,
-  );
-
-  if (produtoEncontrado) {
-    carrinho.push(produtoEncontrado);
-    renderizarCarrinho();
-  }
-}
-
-listaProdutos.addEventListener("click", (evento) => {
-  if (evento.target.tagName === "BUTTON") {
-    adicionarAoCarrinho(Number(evento.target.dataset.id));
-  }
-});
-
-renderizarProdutos();
-renderizarCarrinho();
