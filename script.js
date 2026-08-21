@@ -128,82 +128,9 @@ const produtos = [
   },
 ];
 
-const lista_produtos = document.querySelector("#lista-produtos");
-const carrinho_aba = document.querySelector("#carrinho-aba");
-const lista_carrinho = document.querySelector("#lista-carrinho");
-const total_carrinho = document.querySelector("#total-carrinho");
+const lista_produtos = 
+const carrinho_aba = 
+const lista_carrinho = 
+const total_carrinho = 
 const carrinho = [];
 
-function formatar_preco(valor) {
-  return valor.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-}
-
-function atualizar_carrinho() {
-  lista_carrinho.innerHTML = "";
-
-  carrinho.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = `${item.nome} x ${item.quantidade}`;
-    lista_carrinho.appendChild(li);
-  });
-
-  const total = carrinho.reduce(
-    (soma, item) => soma + item.preco * item.quantidade,
-    0,
-  );
-
-  total_carrinho.textContent = formatar_preco(total);
-  carrinho_aba.classList.toggle("aberto", carrinho.length > 0);
-}
-
-function adicionar_ao_carrinho(produto) {
-  const item_existente = carrinho.find((item) => item.id === produto.id);
-
-  if (item_existente) {
-    item_existente.quantidade += 1;
-  } else {
-    carrinho.push({
-      ...produto,
-      quantidade: 1,
-    });
-  }
-
-  atualizar_carrinho();
-}
-
-function renderizar_produtos() {
-  lista_produtos.innerHTML = "";
-
-  produtos.forEach((produto) => {
-    const item_produto = document.createElement("li");
-    item_produto.className = "produto";
-
-    const imagem = document.createElement("img");
-    imagem.src = produto.imagem;
-    imagem.alt = produto.nome;
-    imagem.loading = "lazy";
-
-    const nome = document.createElement("h3");
-    nome.textContent = produto.nome;
-
-    const detalhes = document.createElement("p");
-    detalhes.textContent = `${produto.categoria} - ${produto.cor}`;
-
-    const preco = document.createElement("p");
-    preco.innerHTML = `<strong>${formatar_preco(produto.preco)}</strong>`;
-
-    const botao = document.createElement("button");
-    botao.className = "button button-primary";
-    botao.type = "button";
-    botao.textContent = "Adicionar";
-    botao.addEventListener("click", () => adicionar_ao_carrinho(produto));
-
-    item_produto.append(imagem, nome, detalhes, preco, botao);
-    lista_produtos.appendChild(item_produto);
-  });
-}
-
-renderizar_produtos();
