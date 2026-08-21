@@ -32,7 +32,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  padding: 72px 24px;
+  padding-top: 72px;
   background:
     radial-gradient(circle at 18% 18%, #ffffff 0, transparent 28%),
     radial-gradient(circle at 82% 12%, #dff2d7 0, transparent 30%),
@@ -340,6 +340,7 @@ footer.container {
   align-items: center;
   width: 100vw;
   max-width: none;
+  height: 30vh;
   margin-top: 32px;
   margin-left: calc(50% - 50vw);
   padding: 24px;
@@ -350,6 +351,9 @@ footer.container {
 footer.container p {
   flex-basis: 100%;
   color: var(--color-surface);
+  display: flex;
+  justify-content: center; /* Centraliza na horizontal */
+  align-items: center;
 }
 
 footer.container .button {
