@@ -344,10 +344,7 @@ footer.container {
   margin-left: calc(50% - 50vw);
   padding: 24px;
   padding-inline: max(24px, calc((100vw - 1180px) / 2));
-  border: 0;
-  border-radius: 0;
   background: #214332;
-  box-shadow: 0 14px 30px rgba(var(--color-shadow-rgb), 0.16);
 }
 
 footer.container p {
