@@ -2,8 +2,6 @@
 
 Loja online de plantas para casa e jardim. Projeto front-end desenvolvido pelo squad DEVAK.
 
-Projeto publicado: https://flora-pied.vercel.app
-
 ## Sobre
 
 E-commerce funcional feito com HTML, CSS e JavaScript puro, sem frameworks e sem dependências externas. O catálogo fica em um array de objetos no JavaScript e toda a interface é renderizada dinamicamente a partir dele.
@@ -68,15 +66,3 @@ Abra o arquivo `index.html` no navegador. Não é necessário instalar nada.
 ## Versionamento
 
 Cada integrante trabalhou em sua própria branch (`feat/kauã`, `feat/vic`, `feat/anita`). As alterações foram integradas à `main` por Pull Request, com revisão antes do merge. A `main` contém a versão final, estável e publicada.
-
-## Prints da interface
-
-<!-- Substitua os caminhos abaixo pelas imagens adicionadas ao repositório -->
-
-![Catálogo de produtos](prints/catalogo.png)
-
-![Carrinho de compras](prints/carrinho.png)
-
-## Licença
-
-Projeto acadêmico desenvolvido na FIAP.
