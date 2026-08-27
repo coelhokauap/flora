@@ -6,62 +6,93 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Florá</title>
   </head>
+
   <body>
     <header class="container">
-      <h1>Flor<strong>á</strong></h1>
-      <p>Loja online de <strong>plantas</strong> para casa e jardim.</p>
+      <h1>Florá</h1>
+
+      <p>Loja online de plantas para casa e jardim.</p>
     </header>
+
+    <section id="carrinho-aba" class="carrinho-aba">
+      <h2>Carrinho</h2>
+
+      <ul id="lista-carrinho"></ul>
+
+      <p>
+        Total:
+        <strong id="total-carrinho"> R$ 0,00 </strong>
+      </p>
+
+      <button id="finalizar-compra" class="button button-primary" type="button">
+        Finalizar compra
+      </button>
+    </section>
 
     <main class="container">
       <section>
-        <h2>Buscar plantas</h2>
+        <h2>Buscar Plantas</h2>
 
-        <form>
+        <form id="filtros">
           <label for="busca">Produto</label>
+
           <input
             id="busca"
             name="busca"
             type="search"
-            placeholder="Buscar por nome da planta"
+            placeholder="Buscar Por Nome"
           />
-          <button class="button" type="button">Pet friendly</button>
-          <button class="button" type="button">Pouca luz</button>
-          <button class="button" type="button">Fácil cuidado</button>
-          <button class="button" type="button">Entrega hoje</button>
-          <label for="categoria">Categoria</label>
-          <select id="categoria" name="categoria">
-            <option value="">Todas as categorias</option>
-            <option value="interior">Plantas de interior</option>
-            <option value="jardim">Plantas de jardim</option>
-            <option value="vasos">Vasos e suportes</option>
-            <option value="cuidados">Cuidados e adubos</option>
+
+          <label for="preco"
+            >Preço máximo: <output id="preco-valor">R$ 50,00</output></label
+          >
+
+          <input id="preco" name="preco" type="range" min="0" step="1" />
+
+          <label for="tamanho">Tamanho da flor</label>
+
+          <select id="tamanho" name="tamanho">
+            <option value="todos">Todos os tamanhos</option>
+
+            <option value="Pequeno">Pequeno</option>
+
+            <option value="Médio">Médio</option>
+
+            <option value="Grande">Grande</option>
           </select>
 
-          <label for="ordenacao">Ordenar por</label>
+          <label for="ordenacao">Ordenar</label>
+
           <select id="ordenacao" name="ordenacao">
             <option value="relevancia">Mais relevantes</option>
+
             <option value="menor-preco">Menor preço</option>
+
             <option value="maior-preco">Maior preço</option>
-            <option value="mais-vendidos">Mais vendidos</option>
           </select>
 
-          <button class="button button-primary" type="button">Filtrar</button>
-          <button class="button" type="reset">Limpar filtros</button>
+          <label for="filtros">Filtrar</label>
+
+          <button class="button filtro" type="button">Românticas</button>
+
+          <button class="button filtro" type="button">Elegantes</button>
+
+          <button class="button filtro" type="button">Alegres</button>
+
+          <button class="button filtro" type="button">Aromáticas</button>
+
+          <button id="filtrar" class="button button-primary" type="button">
+            Filtrar
+          </button>
+
+          <button id="limpar" class="button button-primary" type="reset">
+            Limpar filtros
+          </button>
         </form>
       </section>
 
       <section class="produtos-aba">
         <ul id="lista-produtos"></ul>
-      </section>
-
-      <section id="carrinho-aba" class="carrinho-aba">
-        <h2>Carrinho</h2>
-        <ul id="lista-carrinho"></ul>
-        <p>Total:<strong id="total-carrinho">R$ 0,00</strong></p>
-
-        <button class="button button-primary" type="button">
-          Finalizar compra
-        </button>
       </section>
     </main>
 
