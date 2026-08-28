@@ -124,6 +124,7 @@ const cores_hex = {
 let carrinho = [];
 let categoria = null;
 let cores_escolhidas = {};
+let primeiro_produto_adicionado = true;
 
 const lista_produtos = document.querySelector("#lista-produtos");
 const lista_carrinho = document.querySelector("#lista-carrinho");
@@ -389,6 +390,21 @@ function adicionar_carrinho(indice) {
   }
 
   render_carrinho();
+
+  if (primeiro_produto_adicionado) {      
+    primeiro_produto_adicionado = false;
+    mostrar_carrinho_temporariamente();
+  }
+}
+
+function mostrar_carrinho_temporariamente() {
+  let carrinho_aba = document.querySelector("#carrinho-aba");
+
+  carrinho_aba.classList.add("destaque");
+
+  setTimeout(function () {
+    carrinho_aba.classList.remove("destaque");
+  }, 1800);
 }
 
 function alterar_quantidade(indice, valor) {

@@ -456,6 +456,9 @@ select:focus {
 .carrinho-aba:hover {
   transform: translateX(0);
 }
+.carrinho-aba.destaque {          
+  transform: translateX(0);
+}
 
 .carrinho-aba h2 {
   margin: 0 0 16px;
@@ -690,9 +693,6 @@ footer .button:hover {
     width: 100%;
     max-width: 280px;
   }
-  
-  
-
 }
 
 /* =========================
