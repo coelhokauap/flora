@@ -1,6 +1,6 @@
 # Florá
 
-Loja online de plantas para casa e jardim. Projeto front-end desenvolvido pelo squad DEVAK.
+Loja online de plantas para casa e jardim.
 
 ## Sobre
 
@@ -20,9 +20,9 @@ E-commerce funcional feito com HTML, CSS e JavaScript puro, sem frameworks e sem
 
 ## Tecnologias
 
-- HTML5
-- CSS3 (Grid e Flexbox)
-- JavaScript (ES6+)
+- HTML
+- CSS (Flexbox)
+- JavaScript
 - Git e GitHub
 - Vercel
 
@@ -38,7 +38,7 @@ flora/
 
 ## Layout
 
-O projeto combina CSS Grid e Flexbox. O Grid organiza a estrutura da página (coluna de filtros e área de catálogo) e a grade de produtos. O Flexbox alinha os elementos internos dos cards, do formulário de filtros, dos itens do carrinho e do rodapé.
+O projeto utiliza CSS Flexbox para organizar e alinhar os elementos da página. Ele é aplicado na estrutura do catálogo, na disposição dos produtos, nos elementos internos dos cards, no formulário de filtros, nos itens do carrinho e no rodapé, garantindo uma organização flexível e responsiva.
 
 A responsividade usa três breakpoints:
 
