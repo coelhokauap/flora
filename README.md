@@ -67,4 +67,4 @@ Abra o arquivo `index.html` no navegador. Não é necessário instalar nada.
 
 ## Versionamento
 
-Cada integrante trabalhou em sua própria branch (`feat/kauã`, `feat/vic`, `feat/anita`). As alterações foram integradas à `main` por Pull Request, com revisão antes do merge. A `main` contém a versão final, estável e publicada.
+Cada integrante trabalhou em sua própria branch (feat/kauã, feat/vic, feat/anita), além da branch feat/responsividade, criada especificamente para o desenvolvimento e os ajustes de responsividade do site. As alterações foram integradas à main por meio de Pull Requests, com revisão antes do merge. A main contém a versão final, estável e publicada do projeto.
