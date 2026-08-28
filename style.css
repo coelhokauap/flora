@@ -31,7 +31,7 @@ body {
 }
 
 /* =========================
-   CABEÇALHO
+  CABEÇALHO
 ========================= */
 
 header {
@@ -52,29 +52,26 @@ header p {
 }
 
 /* =========================
-   CONTEÚDO PRINCIPAL
+  CONTEÚDO PRINCIPAL
 ========================= */
 
 main.container {
   margin-top: 32px;
-  display: grid;
-  grid-template-columns: 300px 1fr;
+  display: flex;
   gap: 32px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 /* =========================
-   ÁREA DE BUSCA
+  ÁREA DE BUSCA
 ========================= */
 
 main > section:first-child {
+  flex: 0 0 300px;
   padding: 28px;
-
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 24px;
-
   background: rgba(255, 255, 255, 0.58);
-
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.8),
     0 14px 30px rgba(31, 56, 40, 0.08);
@@ -89,7 +86,8 @@ main > section:first-child h2 {
 }
 
 .legenda-rega {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 6px;
   margin-bottom: 18px;
   padding: 12px;
@@ -206,7 +204,7 @@ select:focus {
 }
 
 /* =========================
-   BOTÕES
+  BOTÕES
 ========================= */
 
 .button {
@@ -267,6 +265,7 @@ select:focus {
 ========================= */
 
 .produtos-aba {
+  flex:1;
   min-width: 0;
 }
 
@@ -281,9 +280,9 @@ select:focus {
 /* Grade dos produtos */
 
 #lista-produtos {
-  display: grid;
+  display: flex;
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  flex-wrap: wrap;
 
   gap: 18px;
 
@@ -298,7 +297,7 @@ select:focus {
 #lista-produtos > li {
   display: flex;
   min-width: 0;
-
+  flex: 0 1 calc((100% - 36px) / 3);
   flex-direction: column;
 
   padding: 12px;
@@ -562,10 +561,8 @@ select:focus {
 
 footer.container {
   display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 12px;
+  flex-direction: column;
+  gap: 20px;
 
   width: 100vw;
   max-width: none;
@@ -573,53 +570,72 @@ footer.container {
   margin-top: 60px;
   margin-left: calc(50% - 50vw);
 
-  padding: 28px max(24px, calc((100vw - 1180px) / 2));
-
+  padding: 32px max(24px, calc((100vw - 1180px) / 2)) 24px;
+  border-radius: 32px 32px 0 0;
   background: #214332;
 
   box-shadow: 0 14px 30px rgba(31, 56, 40, 0.16);
 }
-
-footer p {
+.footer-topo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.footer-marca {
   flex-basis: 100%;
-
   margin: 0;
-
   color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;   
+  gap: 80px;
+}
 footer .button {
   width: auto;
-
-  flex: 1;
-
+  flex: 0 0 auto;
   min-width: 180px;
-
   margin: 0;
-
+  padding: 14px 22px; 
   border-color: rgba(255, 255, 255, 0.24);
-
+  font-size: 15px;  
   background: rgba(255, 255, 255, 0.1);
-
   color: #ffffff;
 }
 
 footer .button:hover {
   background: rgba(255, 255, 255, 0.18);
 }
+.footer-copyright {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  text-align: center;
+}
 
 /* =========================
-   TABLET
+  TABLET
 ========================= */
 
 @media (max-width: 1050px) {
   main.container {
-    grid-template-columns: 280px 1fr;
     gap: 24px;
   }
-
-  #lista-produtos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  main > section:first-child {
+    flex-basis: 280px;
+  }
+  #lista-produtos > li {
+    flex-basis: calc((100% - 18px) / 2);
   }
 }
 
@@ -629,7 +645,7 @@ footer .button:hover {
 
 @media (max-width: 700px) {
   body {
-    padding: 35px 16px 280px;
+    padding: 35px 16px 0px;
   }
 
   header h1 {
@@ -652,8 +668,8 @@ footer .button:hover {
     font-size: 30px;
   }
 
-  #lista-produtos {
-    grid-template-columns: 1fr;
+  #lista-produtos > li {
+    flex-basis: 100%;
   }
 
   .carrinho-aba {
@@ -665,6 +681,18 @@ footer .button:hover {
     margin-left: calc(50% - 50vw);
     padding-inline: 16px;
   }
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  footer .button {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  
+
 }
 
 /* =========================
