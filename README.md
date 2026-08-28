@@ -1,5 +1,7 @@
 # Florá
 
+<p align="left"> <img src="https://skillicons.dev/icons?i=html,css,git,github,vscode&theme=light" /> </p>
+
 Loja online de plantas para casa e jardim.
 
 ## Sobre
